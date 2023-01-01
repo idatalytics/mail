@@ -1,3 +1,7 @@
+import groovy.json.JsonOutput
+import groovy.json.JsonSlurper
+import java.util.Date
+
 pipeline {
   agent any
   stages {
@@ -21,17 +25,18 @@ pipeline {
     echo "Building1"
     try { 
         userInput = input submitter: 'vagrant', message: 'Do you approve?'
-    } catch (org.jenkinsci.plugins.workflow.steps.FlowInterruptedException e) {
-    cause = e.causes.get(0)
-    echo "Aborted by " + cause.getUser().toString()
-    userAborted = true
+     } catch (org.jenkinsci.plugins.workflow.steps.FlowInterruptedException e) 
+        {
+       cause = e.causes.get(0)
+        echo "Aborted by " + cause.getUser().toString()
+        userAborted = true
         echo "SYSTEM aborted, but looks like timeout period didn't complete. Aborting."
-    }
+        }
         if (userAborted) {
-    currentBuild.result = 'ABORTED'
-    } else {
-    echo "Building2"
-    }
+        currentBuild.result = 'ABORTED'
+        } else {
+        echo "Building2"
+        }
 
     
     }     
