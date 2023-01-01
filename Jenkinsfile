@@ -1,10 +1,5 @@
 pipeline {
-  agent {
-    node {
-      label 'mail'
-    }
-
-  }
+  agent any
   stages {
     stage('Start') {
       steps {
