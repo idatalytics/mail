@@ -3,7 +3,7 @@ import groovy.json.JsonSlurper
 import java.util.Date
 def jobName = currentBuild.fullDisplayName
 def mailToRecipients = 'manikandanv@idatalytics.com'
-def useremail='manikandanv@idatalytics.com'
+def useremail='rarimab@idatalytics.com@idatalytics.com'
 def userAborted = false
 pipeline {
   agent any
