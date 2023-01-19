@@ -21,7 +21,7 @@ pipeline {
                 recipientProviders: [[$class: 'CulpritsRecipientProvider']]
                 echo "Building1"
                 try { 
-                    userInput = input submitter: 'vagrant', message: 'Do you approve?'
+                    userInput = input submitter: 'manikandanv', message: 'Do you approve?'
                 } catch (org.jenkinsci.plugins.workflow.steps.FlowInterruptedException e) {
                 cause = e.causes.get(0)
                 echo "Aborted by " + cause.getUser().toString()
